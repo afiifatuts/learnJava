@@ -7,7 +7,12 @@ public class ExampleError {
             }
         }catch (Exception e){
             System.out.println(e);
+           // e.printStackTrace();
         }
+    }
 
+    public void exampleThrow(){
+        System.out.println("test");
+        throw new IllegalArgumentException("Method tidak bisa diakses");
     }
 }

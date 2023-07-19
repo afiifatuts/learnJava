@@ -3,12 +3,24 @@
 public class Main {
     public static void main(String[] args) {
         System.out.println("Start");
+        try{
+            ExampleError exampleError = new ExampleError();
+            exampleError.exampleThrow();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
+        for (int i = 0; i <5 ; i++) {
+            System.out.println(5);
+        }
 
-
-        ExampleError exampleError = new ExampleError();
-        exampleError.testArray();
         System.out.println("Finish");
 
     }
 }
+
+// System.out.println("Start");
+//
+//         ExampleError exampleError = new ExampleError();
+//         exampleError.testArray();
+//         System.out.println("Finish");
