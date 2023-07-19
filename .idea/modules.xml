@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Hari4/ChallengeFriends/ChallengeFriends.iml" filepath="$PROJECT_DIR$/Hari4/ChallengeFriends/ChallengeFriends.iml" />
       <module fileurl="file://$PROJECT_DIR$/Hari4/Hari4.iml" filepath="$PROJECT_DIR$/Hari4/Hari4.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/belajar-java.iml" filepath="$PROJECT_DIR$/.idea/belajar-java.iml" />
     </modules>
