@@ -13,5 +13,17 @@ public class Main {
         Triangle triangle = new Triangle(1.0,2.0);
         System.out.println(triangle);
         System.out.println(triangle.getArea());
+
+
+        ShapeCalculator calculator = new ShapeCalculator();
+        Shape[] shapes = {kotak, circle, triangle};
+
+        System.out.println("Pakai calculator");
+        calculator.sumArea(shapes);
+
+        //casting : menspesifikkan sebuah class menjadi class turunannya 
+        Shape shape = new Circle(1.2);
+        Block block = (Block) new Rectangle(2.2,3.2);
+
     }
 }
