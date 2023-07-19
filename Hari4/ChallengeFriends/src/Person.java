@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Person {
     private String name;
-    private ArrayList<Person> friends;
+    private ArrayList<Person> friends; // tipe data? -> arrayList
 
     public Person(String name) {
         this.name = name;
@@ -26,12 +26,19 @@ public class Person {
     }
 
     public ArrayList<Person> getMutualFriends(Person person){
-        ArrayList<Person> friends = new ArrayList<>();
-        for (Person friend: this.friends){
-            if (person.getFriends().contains(friend)){
-                friends.add(friend);
+        ArrayList<Person> friends = new ArrayList<>();// size by default = 10 but dynamic
+        //validasi
+        for (int i = 0; i < this.friends.size(); i++) {
+            if (person.getFriends().contains(this.friends.get(i))){
+                friends.add(this.friends.get(i));
             }
         }
+        //belum tervalidasi
+//        for (Person friend: this.friends){
+//            if (person.getFriends().contains(friend)){
+//                friends.add(friend);
+//            }
+//        }
         return friends;
     }
 
