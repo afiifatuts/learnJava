@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Hari4/Hari4.iml" filepath="$PROJECT_DIR$/Hari4/Hari4.iml" />
       <module fileurl="file://$PROJECT_DIR$/RobotChallenge/RobotChallenge.iml" filepath="$PROJECT_DIR$/RobotChallenge/RobotChallenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RobotChallenge2/RobotChallenge2.iml" filepath="$PROJECT_DIR$/RobotChallenge2/RobotChallenge2.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/belajar-java.iml" filepath="$PROJECT_DIR$/.idea/belajar-java.iml" />
     </modules>
   </component>
