@@ -2,25 +2,15 @@
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Start");
-        try{
-            ExampleError exampleError = new ExampleError();
-            exampleError.exampleThrow();
-        }catch (Exception e){
-            e.printStackTrace();
+        System.out.println(Gender.MALE);
+        System.out.println(Gender.FEMALE);
+        //System.out.println(Gender.values());
+
+        for (Gender g : Gender.values()){
+            System.out.println(g);
         }
 
-        for (int i = 0; i <5 ; i++) {
-            System.out.println(5);
-        }
-
-        System.out.println("Finish");
-
+        System.out.println(Gender.values()[0]);
     }
 }
 
-// System.out.println("Start");
-//
-//         ExampleError exampleError = new ExampleError();
-//         exampleError.testArray();
-//         System.out.println("Finish");

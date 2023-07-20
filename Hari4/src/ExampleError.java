@@ -13,6 +13,6 @@ public class ExampleError {
 
     public void exampleThrow(){
         System.out.println("test");
-        throw new IllegalArgumentException("Method tidak bisa diakses");
+        throw new IllegalArgumentException(Constant.EXCEPTION_MESSAGE);
     }
 }
