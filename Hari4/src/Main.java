@@ -11,6 +11,16 @@ public class Main {
         Connection connection = connectToDb.startConnection();
 
         Statement statement = connection.createStatement();
+
+        String productName1 = "nabati";
+        Integer price1 = 3000;
+        Integer stock = 30;
+        Integer id = 2;
+        String queryInsert = "INSERT INTO mst_product (product_id, product_name , product_price, stock) VALUES " +
+                "('"+id+"','"+productName1+"','"+price1+"', '"+stock+"')";
+
+        statement.executeUpdate(queryInsert);
+
         String query = "SELECT * FROM mst_product;";
         ResultSet result = statement.executeQuery(query);
         //System.out.println(result);
@@ -20,6 +30,11 @@ public class Main {
             Integer price = result.getInt("product_price");
             System.out.println("Product "+productName+" harganya "+price);
         }
-       // System.out.println("hello");
+        // System.out.println("hello");
+
     }
 }
+
+
+
+
