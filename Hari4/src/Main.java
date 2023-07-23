@@ -15,7 +15,56 @@ public class Main {
         ConnectToDb connectToDb = new ConnectToDb();
         Connection connection = connectToDb.startConnection();
 
-        //menambahkan product sekaligus banyak
+        Integer trxId =1;
+        Integer productId = 1;
+        Integer qty =1;
+
+        connection.setAutoCommit(false); //-> begin transaction
+        String sqlInsert = "INSERT INTO trx_purchase_detail (purchase_id, product_id, quantity) VALUES (?,?,?)";
+
+        PreparedStatement statementInsert = connection.prepareStatement(sqlInsert);
+        statementInsert.setInt(1,trxId);
+        statementInsert.setInt(2,productId);
+        statementInsert.setInt(3, qty);
+
+        statementInsert.executeUpdate();
+        statementInsert.close();
+
+        String sqlGetStock = "SELECT stock FROM mst_product WHERE product_id = ?";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(sqlGetStock);
+        preparedStatement.setInt(1,productId);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        resultSet.next();
+        Integer stock = resultSet.getInt("stock");
+        preparedStatement.close();
+
+        String sqlUpdate = "UPDATE mst_product SET stock = ? WHERE product_id = ?";
+        PreparedStatement statementUpdate = connection.prepareStatement(sqlUpdate);
+
+        statementUpdate.setInt(1,stock-qty);
+        statementUpdate.setInt(2, productId);
+        statementUpdate.executeUpdate();
+        statementUpdate.close();
+
+        connection.commit();
+        connection.close();
+
+
+
+
+    }
+}
+
+
+
+
+/*
+*
+*
+*
+*  //menambahkan product sekaligus banyak
         Product product1 = new Product(9000000, 6, "Laptop");
         Product product2 = new Product(9000000, 6, "Keyboard");
         Product product3 = new Product(900000, 6, "Monitor");
@@ -45,15 +94,8 @@ public class Main {
         }
 
         preparedStatement.executeBatch();
-
-    }
-}
-
-
-
-
-/*
-*    ProductRepo productRepo = new ProductRepo(connection);
+        *
+        * ProductRepo productRepo = new ProductRepo(connection);
 
         List<Product> result= productRepo.getAllProducts();
         for (Product r : result){
