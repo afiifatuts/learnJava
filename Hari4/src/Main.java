@@ -1,6 +1,9 @@
 import config.ConnectToDb;
+import model.Product;
+import repository.ProductRepo;
 
 import java.sql.*;
+import java.util.List;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
@@ -10,27 +13,18 @@ public class Main {
         ConnectToDb connectToDb = new ConnectToDb();
         Connection connection = connectToDb.startConnection();
 
-        Statement statement = connection.createStatement();
+        ProductRepo productRepo = new ProductRepo(connection);
 
-        String productName1 = "nabati";
-        Integer price1 = 3000;
-        Integer stock = 30;
-        Integer id = 2;
-        String queryInsert = "INSERT INTO mst_product (product_id, product_name , product_price, stock) VALUES " +
-                "('"+id+"','"+productName1+"','"+price1+"', '"+stock+"')";
-
-        statement.executeUpdate(queryInsert);
-
-        String query = "SELECT * FROM mst_product;";
-        ResultSet result = statement.executeQuery(query);
-        //System.out.println(result);
-
-        while (result.next()){// result.netx kembaliaannnya boolean
-            String productName = result.getString("product_name");
-            Integer price = result.getInt("product_price");
-            System.out.println("Product "+productName+" harganya "+price);
+        List<Product> result= productRepo.getAllProducts();
+        for (Product r : result){
+            System.out.println(r);
         }
-        // System.out.println("hello");
+
+        Product product = productRepo.getProduct(1);
+        System.out.println(product.toString());
+
+
+
 
     }
 }
